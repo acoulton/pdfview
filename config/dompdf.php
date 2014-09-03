@@ -6,7 +6,8 @@
  */
 
 // Calculate base paths for standard defaults
-$dompdf_dir = realpath(dirname(Kohana::find_file('vendor', 'dompdf/dompdf/dompdf_config.inc')));
+// @todo: should load DOMPDF composer path directly once there is a kohana composer vendor constant
+$dompdf_dir = realpath(APPPATH.'../vendor/dompdf/dompdf');
 
 return array(
 
@@ -268,13 +269,6 @@ return array(
 		* @var bool
 		*/
 		View_PDF::DOMPDF_ENABLE_CSS_FLOAT => FALSE,
-	
-		/**
-		* Prepend the DOMPDF autoload function the spl_autoload stack
-		*
-		* @var bool
-		*/
-		View_PDF::DOMPDF_AUTOLOAD_PREPEND => FALSE,
 	
 		/**
 		* Use the more-than-experimental HTML5 Lib parser

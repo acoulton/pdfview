@@ -28,7 +28,6 @@ class View_PDF extends View {
 	const DOMPDF_LOG_OUTPUT_FILE       ='DOMPDF_LOG_OUTPUT_FILE';
 	const DOMPDF_FONT_HEIGHT_RATIO     ='DOMPDF_FONT_HEIGHT_RATIO';
 	const DOMPDF_ENABLE_CSS_FLOAT      ='DOMPDF_ENABLE_CSS_FLOAT';
-	const DOMPDF_AUTOLOAD_PREPEND      ='DOMPDF_AUTOLOAD_PREPEND';
 	const DOMPDF_ENABLE_HTML5PARSER    ='DOMPDF_ENABLE_HTML5PARSER';
 
 	/**
@@ -60,6 +59,8 @@ class View_PDF extends View {
 			throw new Exception_DOMPDF_Initialised("DOMPDF is already initialised");
 		}
 
+		define('DOMPDF_ENABLE_AUTOLOAD', FALSE);
+
 		// Define any custom config values
 		foreach (self::get_dompdf_option() as $option => $value)
 		{
@@ -67,7 +68,8 @@ class View_PDF extends View {
 		}
 
 		// Load DOMPDF configuration, this will prepare DOMPDF
-		require_once Kohana::find_file('vendor', 'dompdf/dompdf/dompdf_config.inc');
+		// @todo: should load DOMPDF composer path directly once there is a kohana composer vendor constant
+		require_once APPPATH.'../vendor/dompdf/dompdf/dompdf_config.inc.php';
 		self::$_dompdf_initialised = TRUE;
 	}
 
