@@ -84,17 +84,7 @@ class View_PDF extends View {
 			throw new Exception_DOMPDF_Initialised("Could not load DOMPDF options as DOMPDF has already been initialised");
 		}
 
-		if (method_exists('Kohana', 'config'))
-		{
-			// Handle KO 3.0 - 3.1
-			$options = Kohana::config('dompdf.options');
-		}
-		else
-		{
-			// Handle KO 3.2 style
-			$options = Kohana::$config->load('dompdf.options');
-		}
-		self::$_options = $options;
+		self::$_options = Kohana::$config->load('dompdf.options');
 	}
 
 	/**
