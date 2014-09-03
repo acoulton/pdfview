@@ -1,0 +1,4 @@
+composer.lock
+/vendor
+/modules
+/koharness_bootstrap.php
