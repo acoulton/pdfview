@@ -48,9 +48,9 @@ Placed in a controller action:
     $pdf = View_PDF::factory('pdf/example');
     
     // Use the PDF as the request response
-    $this->request->response = $pdf;
+    $this->response->body($pdf);
     
     // Display the PDF in the browser as "my_pdf.pdf"
     // Remove "inline = TRUE" to force the PDF to be downloaded
-    $this->request->send_file(TRUE, 'my_pdf.pdf', array('inline' => TRUE));
+    $this->response->send_file(TRUE, 'my_pdf.pdf', array('inline' => TRUE));
 
