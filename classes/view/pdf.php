@@ -174,6 +174,7 @@ class View_PDF extends View {
 	 */
 	public function render($file = NULL)
 	{
+		$this->_dompdf = NULL;
 		// Render the HTML normally
 		$html = parent::render($file);
 
