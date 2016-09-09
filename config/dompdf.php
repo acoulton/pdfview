@@ -85,17 +85,6 @@ return array(
 		//View_PDF::DOMPDF_CHROOT => realpath(DOMPDF_DIR),
 	
 		/**
-		* Whether to use Unicode fonts or not.
-		*
-		* When set to true the PDF backend must be set to "CPDF" and fonts must be
-		* loaded via load_font.php.
-		*
-		* When enabled, dompdf can support all Unicode glyphs.  Any glyphs used in a
-		* document must be present in your fonts, however.
-		*/
-		View_PDF::DOMPDF_UNICODE_ENABLED => TRUE,
-	
-		/**
 		* Whether to make font subsetting or not.
 		*/
 		View_PDF::DOMPDF_ENABLE_FONTSUBSETTING => FALSE,
@@ -262,14 +251,7 @@ return array(
 		*/
 		View_PDF::DOMPDF_FONT_HEIGHT_RATIO => 1.1,
 	
-		/**
-		* Enable CSS float
-		*
-		* Allows people to disabled CSS float support
-		* @var bool
-		*/
-		View_PDF::DOMPDF_ENABLE_CSS_FLOAT => FALSE,
-	
+
 		/**
 		* Use the more-than-experimental HTML5 Lib parser
 		*/
